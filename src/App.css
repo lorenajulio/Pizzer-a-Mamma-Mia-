@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.Principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("./assets/pizza.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  width: 100%;
+}
+
+h1,
+h3 {
+  color: rgb(255, 255, 255);
+}
+.cardMenu {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.card {
+  width: 18rem;
+}
+.card img {
+  object-fit: cover;
+}
+.boton {
+  display: flex;
+  gap: 2rem;
+}
+.card-body {
+  text-align: center;
+}
+.card-link {
+  text-decoration: none;
+  color: black;
+  border: 50rem;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  margin-top: 1rem;
+}
