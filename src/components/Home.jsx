@@ -2,33 +2,24 @@ import React from "react";
 import "../App.css";
 import Header from "./Header";
 import CardPizza from "./CardPizza";
-
+import pizzas from "./data/Pizza";
 export const Home = () => {
   return (
     <>
       <Header />
+
       <div className="cardMenu">
-        <CardPizza
-          titulo="Pizza Napolitana"
-          ingredientes="Mozarrrella, tomate, jamon, oregano"
-          precio="$5950"
-          ver="👀Ver mas"
-          añadir="🛒Añadir"
-        />
-        <CardPizza
-          titulo="Pizza Española "
-          ingredientes="Mozarrrella, gorgonzola, parmesano, provolone"
-          precio="$6950"
-          ver="👀Ver mas"
-          añadir="🛒Añadir"
-        />
-        <CardPizza
-          titulo="Pizza Pepperoni "
-          ingredientes="Mozarrrella,pepperoni, oregano"
-          precio="$6950"
-          ver="👀Ver mas"
-          añadir="🛒Añadir"
-        />
+        {pizzas.map((pizza) => (
+          <CardPizza
+            key={pizza.id}
+            titulo={pizza.name}
+            ingredientes={pizza.ingredients}
+            precio={`$${pizza.price}`}
+            img={pizza.img}
+            ver="👀 Ver más"
+            añadir="🛒 Añadir"
+          />
+        ))}
       </div>
     </>
   );

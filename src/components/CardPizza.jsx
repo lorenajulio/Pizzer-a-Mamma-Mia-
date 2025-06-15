@@ -1,14 +1,16 @@
-import React from "react";
 import piza from "../assets/pizza.jpg";
-
 export const CardPizza = (props) => {
   return (
-    <div class="card mt-5">
-      <img src={piza} alt="" />
+    <div className="card mt-5">
+      <img src={props.img || piza} alt={props.titulo} />
       <div className="card-body ">
         <h5 className="card-title">{props.titulo}</h5>
         <h6>Ingredientes:</h6>
-        <p className="card-text">{props.ingredientes}</p>
+        <ul>
+          {props.ingredientes?.map((ing, i) => (
+            <li key={i}>{ing}</li>
+          ))}
+        </ul>
       </div>
 
       <div className="card-body">
