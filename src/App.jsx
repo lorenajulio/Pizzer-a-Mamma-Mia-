@@ -14,10 +14,10 @@ function App() {
     <>
       <Navbar />
 
-      {/*<Home />*/}
+      <Home />
       {/*<Register />*/}
       <Cart />
-      <Login />
+      {/*<Login />*/}
 
       <Footer />
     </>
