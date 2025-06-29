@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import pizzasData from "./data/Pizza";
+import pizzasData from "../components/data/Pizza";
 
-export const Cart = () => {
+export const CartPage = () => {
   const [cartItems, setCartItems] = useState(
     pizzasData.map((pizza) => ({
       ...pizza,
@@ -72,4 +72,4 @@ export const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartPage;

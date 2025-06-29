@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const total = 25000;
@@ -24,17 +25,18 @@ export const Navbar = () => {
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
-                🍕Home
-              </a>
+              <Link class="nav-link active" aria-current="page" to="/">
+                🍕Inicio
+              </Link>{" "}
+              |{" "}
             </li>
 
             {token ? (
               <>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    🔓 Profile
-                  </a>
+                  <Link class="nav-link" to="/profile">
+                    🔓Perfil
+                  </Link>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">
@@ -45,21 +47,23 @@ export const Navbar = () => {
             ) : (
               <>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <Link class="nav-link" to="/login">
                     🔐Login
-                  </a>
+                  </Link>{" "}
+                  |{" "}
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    🔐Registrar
-                  </a>
+                  <Link class="nav-link" to="/register">
+                    🔐 Registro
+                  </Link>{" "}
+                  |{" "}
                 </li>
               </>
             )}
           </ul>
         </div>
         <span className="navbar-text ms-auto text-white">
-          🛒 Total: ${total.toLocaleString()}
+          <Link to="/cart">🛒 Total:</Link>${total.toLocaleString()}
         </span>
       </div>
     </nav>
