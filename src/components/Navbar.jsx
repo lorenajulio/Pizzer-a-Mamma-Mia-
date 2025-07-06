@@ -34,12 +34,12 @@ export const Navbar = () => {
             {token ? (
               <>
                 <li class="nav-item">
-                  <Link class="nav-link" to="/profile">
+                  <Link class="nav-link active" to="/profile">
                     🔓Perfil
                   </Link>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link active" href="#">
                     🔒Logout
                   </a>
                 </li>
@@ -47,13 +47,13 @@ export const Navbar = () => {
             ) : (
               <>
                 <li class="nav-item">
-                  <Link class="nav-link" to="/login">
+                  <Link class="nav-link active" to="/login">
                     🔐Login
                   </Link>{" "}
                   |{" "}
                 </li>
                 <li class="nav-item">
-                  <Link class="nav-link" to="/register">
+                  <Link class="nav-link active" to="/register">
                     🔐 Registro
                   </Link>{" "}
                   |{" "}

@@ -29,6 +29,7 @@ export const HomePage = () => {
             img={pizza.img}
             ver="👀 Ver más"
             añadir="🛒 Añadir"
+            pizza={pizza}
           />
         ))}
       </div>
