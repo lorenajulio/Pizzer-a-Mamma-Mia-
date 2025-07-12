@@ -1,6 +1,8 @@
 import { useCart } from "../context/CartContext";
+import { useUser } from "../context/UserContext";
 
 const Cart = () => {
+  const { token } = useUser();
   const { cart, addToCart, removeFromCart, total } = useCart();
 
   return (
@@ -28,7 +30,9 @@ const Cart = () => {
         </div>
       ))}
       <h4>Total: ${total.toLocaleString()}</h4>
-      <button className="btn btn-dark mt-2">Pagar</button>
+      <button className="btn btn-dark mt-2" disabled={!token}>
+        Pagar
+      </button>
     </div>
   );
 };

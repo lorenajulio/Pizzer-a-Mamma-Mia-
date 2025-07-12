@@ -1,72 +1,76 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext"; // si estás usando carrito
+import { useUser } from "../context/UserContext"; // para manejar el token
 
-export const Navbar = () => {
+const Navbar = () => {
   const total = 25000;
-  const token = false;
+  const { token, logout } = useUser();
 
   return (
-    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+    <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">
           Pizzería Mamma Mía
-        </a>
+        </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <Link class="nav-link active" aria-current="page" to="/">
+
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link active" to="/">
                 🍕Inicio
-              </Link>{" "}
-              |{" "}
+              </Link>
             </li>
 
             {token ? (
               <>
-                <li class="nav-item">
-                  <Link class="nav-link active" to="/profile">
+                <li className="nav-item">
+                  <Link className="nav-link active" to="/profile">
                     🔓Perfil
                   </Link>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">
+                <li className="nav-item">
+                  <button
+                    className="nav-link btn btn-link text-white"
+                    onClick={logout}
+                  >
                     🔒Logout
-                  </a>
+                  </button>
                 </li>
               </>
             ) : (
               <>
-                <li class="nav-item">
-                  <Link class="nav-link active" to="/login">
+                <li className="nav-item">
+                  <Link className="nav-link active" to="/login">
                     🔐Login
-                  </Link>{" "}
-                  |{" "}
+                  </Link>
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link active" to="/register">
-                    🔐 Registro
-                  </Link>{" "}
-                  |{" "}
+                <li className="nav-item">
+                  <Link className="nav-link active" to="/register">
+                    📝 Registro
+                  </Link>
                 </li>
               </>
             )}
           </ul>
         </div>
+
         <span className="navbar-text ms-auto text-white">
-          <Link to="/cart">🛒 Total:</Link>${total.toLocaleString()}
+          <Link to="/cart" className="text-white text-decoration-none">
+            🛒 Total: ${total.toLocaleString()}
+          </Link>
         </span>
       </div>
     </nav>
   );
 };
+
 export default Navbar;
